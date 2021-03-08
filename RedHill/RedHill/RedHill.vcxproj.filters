@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\OpenGL\GraphicsOGL.cpp" />
+    <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\OpenGL\ShaderHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\OpenGL\GraphicsOGL.h" />
+    <ClInclude Include="src\OpenGL\ShaderHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shaders\GLSL\triangleVertex.glsl" />
+    <None Include="src\Shaders\GLSL\triangleFragment.glsl" />
+  </ItemGroup>
+</Project>
