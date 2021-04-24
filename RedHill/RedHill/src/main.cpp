@@ -1,19 +1,16 @@
 #include <iostream>
-#include <stdexcept>
 
-#include "Renderer/RheVulkan.h"
+#include "OpenGL/GraphicsOGL.h"
 
-int main()
+enum GRAPHICS_API{d11,d12,vk,ogl};
+
+int main(int argc, char** argv)
 {
-    RheVulkan app;
+	GraphicsOGL* app {};
 
-	try
-	{
-		app.Run();
-	}
-	catch(const std::exception & e){
-		std::cerr << e.what() << '\n';
-		return EXIT_FAILURE;
-	}
-    return EXIT_SUCCESS;
+	app->HelloTriangleDemo();
+
+	delete app;
+
+	return EXIT_SUCCESS;
 }
