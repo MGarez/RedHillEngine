@@ -352,3 +352,4 @@ MigrationBackup/
 RedHill/Dependecies/*
 RedHill//binaries/*
 RedHill/intermediates/*
+RedHill/binaries/Debug-x64/RedHill.exe
