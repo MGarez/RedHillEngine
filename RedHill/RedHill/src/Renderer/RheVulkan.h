@@ -1,6 +1,7 @@
 #pragma once
 
 #define GLFW_INCLUDE_VULKAN
+#include <optional>
 #include <vector>
 #include <GLFW/glfw3.h>
 
@@ -15,6 +16,16 @@ public:
 
 private:
 
+	struct QueueFamilyIndices
+	{
+		std::optional<uint32_t> graphicsFamily;
+
+		bool isComplete()
+		{
+			return graphicsFamily.has_value();
+		}
+	};
+
 	void InitWindow();
 	void InitVulkan();
 	void MainLoop();
@@ -26,13 +37,18 @@ private:
 	bool CheckValidationLayersSupport() const;
 	void SetupDebugMessenger();
 	void PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo);
+	void PickPhysicalDevice();
 
 
 	std::vector<const char*> GetRequiredExtensions() const;
+	bool IsDeviceSuitable(const VkPhysicalDevice & device);
+	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice device);
 
 	GLFWwindow* window= nullptr;
 	VkInstance instance = nullptr;
 	VkDebugUtilsMessengerEXT debugMessenger = nullptr;
+
+	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 
 	const int16_t default_width = 800;
 	const int16_t default_height = 600;

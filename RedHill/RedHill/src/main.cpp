@@ -10,7 +10,6 @@ int main()
 	{
 		RheVulkan app;
 		app.Run();
-		std::cin.get();
 	}
 	catch(const std::exception & e){
 		std::cerr << e.what() << '\n';
